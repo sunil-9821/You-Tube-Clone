@@ -4,7 +4,15 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { API_KEY } from "../../data";
 import { SearchContext } from "../../Context/searchContext";
-import { logo, menu, moreIcon, notificationIcon, profileIcon, searchIcon, uploadIcon } from "./NavbarIcons";
+import {
+  logo,
+  menu,
+  moreIcon,
+  notificationIcon,
+  profileIcon,
+  searchIcon,
+  uploadIcon,
+} from "./NavbarIcons";
 
 const Navbar = ({ setSidebar, sidebar }) => {
   const [query, setQuery] = useState("");
@@ -53,7 +61,7 @@ const Navbar = ({ setSidebar, sidebar }) => {
               onChange={handleChange}
             />
             <img
-              onClick={searchQuery}
+              // onClick={searchQuery}
               src={searchIcon}
               alt="Search Icon"
               className="searchButton"
