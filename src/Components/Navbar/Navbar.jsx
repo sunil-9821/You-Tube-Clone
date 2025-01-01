@@ -9,11 +9,11 @@ import notificationIcon from "../../assets/notification.png";
 import profileIcon from "../../assets/jack.png";
 import { Link } from "react-router-dom";
 import { API_KEY } from "../../data";
-import { SearchContext } from './../../Context/searchContext';
+import { SearchContext } from "../../Context/searchContext";
 
 const Navbar = ({ setSidebar, sidebar }) => {
   const [query, setQuery] = useState("");
-   const { setSearchResults } = useContext(SearchContext);
+  const { setSearchResults } = useContext(SearchContext);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -72,24 +72,6 @@ const Navbar = ({ setSidebar, sidebar }) => {
           <img className="userIcon" src={profileIcon} alt="User Profile Icon" />
         </div>
       </nav>
-      <div className="searchResults">
-        {dataQuery.length > 0
-          ? dataQuery.map((item, i) => (
-              <Link
-                key={i}
-                to={`/video/${item.id.videoId}`}
-                className="videoLink"
-              >
-                <img
-                  className="videoThumbnail"
-                  src={item.snippet.thumbnails.medium.url}
-                  alt={item.snippet.title}
-                />
-                <p className="videoTitle">{item.snippet.title}</p>
-              </Link>
-            ))
-          : query && <p className="noResults">No results found.</p>}
-      </div>
     </>
   );
 };

@@ -4,7 +4,7 @@ import "./Feed.css";
 import { Link } from "react-router-dom";
 import { API_KEY, valueConverter } from "../../data";
 import moment from "moment";
-import { SearchContext } from "./../../Context/searchContext";
+import { SearchContext } from "../../Context/searchContext";
 const Feed = ({ category }) => {
   const [data, setData] = useState([]);
   const { searchResults } = useContext(SearchContext);
@@ -42,6 +42,24 @@ const Feed = ({ category }) => {
           </Link>
         );
       })}
+      <div className="searchResults">
+        {dataQuery.length > 0
+          ? dataQuery.map((item, i) => (
+              <Link
+                key={i}
+                to={`/video/${item.id.videoId}`}
+                className="videoLink"
+              >
+                <img
+                  className="videoThumbnail"
+                  src={item.snippet.thumbnails.medium.url}
+                  alt={item.snippet.title}
+                />
+                <p className="videoTitle">{item.snippet.title}</p>
+              </Link>
+            ))
+          : query && <p className="noResults">No results found.</p>}
+      </div>
     </div>
   );
 };
