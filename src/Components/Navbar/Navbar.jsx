@@ -1,15 +1,10 @@
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
-import menu from "../../assets/menu.png";
-import logo from "../../assets/logo-youtube.svg";
-import searchIcon from "../../assets/search.png";
-import uploadIcon from "../../assets/upload.png";
-import moreIcon from "../../assets/more.png";
-import notificationIcon from "../../assets/notification.png";
-import profileIcon from "../../assets/jack.png";
+
 import { Link } from "react-router-dom";
 import { API_KEY } from "../../data";
 import { SearchContext } from "../../Context/searchContext";
+import { logo, menu, moreIcon, notificationIcon, profileIcon, searchIcon, uploadIcon } from "./NavbarIcons";
 
 const Navbar = ({ setSidebar, sidebar }) => {
   const [query, setQuery] = useState("");

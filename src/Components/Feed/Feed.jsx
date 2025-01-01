@@ -14,7 +14,7 @@ const Feed = ({ category }) => {
   }
 
   const fetchData = async () => {
-    const videoList_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResult=500&regionCode=IN&videoCategoryId=${category}&key=${API_KEY}`;
+    const videoList_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&regionCode=IN&videoCategoryId=${category}&key=${API_KEY}`;
     await fetch(videoList_URL)
       .then((response) => response.json())
       .then((data) => setData(data.items));
@@ -42,24 +42,6 @@ const Feed = ({ category }) => {
           </Link>
         );
       })}
-      <div className="searchResults">
-        {dataQuery.length > 0
-          ? dataQuery.map((item, i) => (
-              <Link
-                key={i}
-                to={`/video/${item.id.videoId}`}
-                className="videoLink"
-              >
-                <img
-                  className="videoThumbnail"
-                  src={item.snippet.thumbnails.medium.url}
-                  alt={item.snippet.title}
-                />
-                <p className="videoTitle">{item.snippet.title}</p>
-              </Link>
-            ))
-          : query && <p className="noResults">No results found.</p>}
-      </div>
     </div>
   );
 };
