@@ -1,0 +1,19 @@
+.recommended {
+  flex-basis: 30%;
+}
+.sideVideoList {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.sideVideoList img {
+  width: 50%;
+  flex-basis: 49%;
+}
+.videoinfo {
+  flex-basis: 49%;
+}
+.videoinfo h4 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
